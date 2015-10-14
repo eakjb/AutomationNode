@@ -39,6 +39,7 @@ var sendNotifications = function (temp,h) {
         title: 'Humidity is ' + h + '%'
     });
     lastNotifiedTemperature = temp;
+    lastNotifiedHumidity = h;
 };
 var sendTemperatureUpdates = function () {
     var temp = temperature.getTemperatureFahrenheit();
