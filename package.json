@@ -1,0 +1,15 @@
+{
+  "name": "automationnode",
+  "version": "1.0.0",
+  "description": "A node for the home automation system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jake Billings",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.3",
+    "request": "^2.65.0"
+  }
+}
