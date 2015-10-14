@@ -30,18 +30,23 @@ var sendNotification = function (body) {
 };
 
 var lastNotifiedTemperature = -1000;
-var sendNotifications = function (temp) {
+var lastNotifiedHumidity = -1000;
+var sendNotifications = function (temp,h) {
     sendNotification({
         title: 'Temperature is ' + temp + '°F'
+    });
+    sendNotification({
+        title: 'Humidity is ' + h + '%'
     });
     lastNotifiedTemperature = temp;
 };
 var sendTemperatureUpdates = function () {
     var temp = temperature.getTemperatureFahrenheit();
-    if (Math.abs(lastNotifiedTemperature-temp)>1) {
-        sendNotifications(temp);
+    var h = temperature.getHumidity();
+    if (Math.abs(lastNotifiedTemperature-temp)>1||Math.abs(lastNotifiedHumidity-h)>1) {
+        sendNotifications(temp,h);
     }
-    setTimeout(sendTemperatureUpdates,1000);
+    setTimeout(sendTemperatureUpdates,500);
 };
 sendTemperatureUpdates();
 
